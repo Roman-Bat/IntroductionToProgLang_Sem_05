@@ -29,12 +29,11 @@ void PrintArray(int[] arr)
 }
 void FindNumber(int[] array, int number)
 {
-    int number = number;
-    string answer;
+    int numberCy = number;
+    string answer = "нет";
     foreach (int element in array)
         {
-            if (element == number) answer = "да" break;
-            else answer = "нет";
+            if (element == numberCy) answer = "да"; break;
         }
         Console.WriteLine(answer);
 }
