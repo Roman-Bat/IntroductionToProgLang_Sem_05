@@ -28,18 +28,30 @@ void PrintArray(int[] arr)
 }
 
 }
-void Proizved(int[] array)
+int[] Proizved(int[] array)
 {
-    int 
-        foreach (int element in array)
-        {
-            if (element > 0) PositiveSum += element;
-            else NegativeSum += element;
-        }
-        Console.WriteLine($"Сумма положительных элементов массива {PositiveSum}, сумма отрицательных элементов массива {NegativeSum}");
+    int[] result = new int [array.Length];
+    int start = 0;
+    int end = array.Length - 1;
+    while (start <= end)
+    {
+        if(start >= end) result[start] = array[end];
+        else result[start] = array[start] * array[end];
+        start ++;
+        end --;
+    }
+    int[] allResult = new int [start];
+    for (int i = 0; i <= start-1; i++)
+    {
+        allResult[i] = result[i];
+    }
+    return allResult;
 }
 int size = GetNumber("Введите длину массива");
 int min = GetNumber("Введите минимальный диапазон для массива");
 int max = GetNumber("Введите максимальный диапазон для массива");
 int [] array = Getarray(size, min, max);
 PrintArray(array);
+Console.WriteLine();
+int[] newarray = Proizved(array);
+PrintArray(newarray);
